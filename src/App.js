@@ -1,24 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+
+// Components
+import Navbar from "./Components/Navbar";
+import FuncMovie from "./Components/FuncMovie";
+import ClassMovie from "./Components/ClassMovie";
+import DigimonApi from "./Components/DigimonApi";
+import ThemeToggle from "./Components/ThemeToggle";
+
+// Context
+import ThemeContextProvider from "./Context/ThemeContext";
+import FuncMovContextProvider from "./Context/FuncMovContext";
+import ClassMovContextProvider from "./Context/ClassMovContext";
+import DigimonApiContextProvider from "./Context/DigimonApiContext";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ThemeContextProvider>
+        <Navbar />
+        <FuncMovContextProvider>
+          <FuncMovie />
+        </FuncMovContextProvider>
+        <ClassMovContextProvider>
+          <ClassMovie />
+        </ClassMovContextProvider>
+        <ThemeToggle />
+        <DigimonApiContextProvider>
+          <DigimonApi />
+        </DigimonApiContextProvider>
+      </ThemeContextProvider>
     </div>
   );
 }
